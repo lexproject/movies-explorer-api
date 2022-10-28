@@ -15,7 +15,6 @@ const { dbase } = require('./utils/utils');
 
 const { PORT = 3000, DB = dbase } = process.env;
 const app = express();
-app.use(limiter);
 app.use(cookieParser());
 app.use(helmet());
 app.use(bodyParser.json());
@@ -23,6 +22,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 mongoose.connect(DB);
 app.use(requestLogger);
+app.use(limiter);
 app.use(cors);
 app.use(routes);
 app.use((req, res, next) => { next(defaultNotFaund); });

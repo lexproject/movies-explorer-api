@@ -8,7 +8,6 @@ const { dubleEmailError } = require('../errors/conflictError');
 const {
   userCreateError,
   userUpdateError,
-  userLoginError,
 } = require('../errors/dataError');
 const { secretKey } = require('../utils/utils');
 
@@ -30,13 +29,7 @@ module.exports.login = (req, res, next) => {
       });
       res.send({ message: 'Аутентификация прошла успешно' });
     })
-    .catch((err) => {
-      if (err.name === 'ValidationError' || err.name === 'CastError') {
-        next(userLoginError);
-      } else {
-        next(err);
-      }
-    });
+    .catch(next);
 };
 
 module.exports.createUser = (req, res, next) => {

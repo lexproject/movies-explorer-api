@@ -18,7 +18,7 @@ const movieValidate = celebrate({
     nameRU: Joi.string().required(),
     nameEN: Joi.string().required(),
     image: Joi.string().required().pattern(linkValid),
-    trailer: Joi.string().required().pattern(linkValid),
+    trailerLink: Joi.string().required().pattern(linkValid),
     thumbnail: Joi.string().required().pattern(linkValid),
   }),
 });

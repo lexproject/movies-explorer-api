@@ -2,7 +2,7 @@ module.exports = ((req, res, next) => {
   const allowedCors = [
     'http://movies.lex.nomoredomains.icu',
     'https://movies.lex.nomoredomains.icu',
-    'http://localhost:3001',
+    'http://localhost:3000',
   ];
   const { origin } = req.headers;
   const { method } = req;
